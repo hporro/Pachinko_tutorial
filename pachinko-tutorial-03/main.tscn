@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4f52237jvldh"]
+
+[ext_resource type="Script" uid="uid://v1bqllpa3lui" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bkhecrfx451f8" path="res://static_pin.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cyb6i3j3s1l7v" path="res://ball.tscn" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dj857tfo1uvkx" path="res://black_20x20.png" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://ddltyewduxqw3" path="res://text_edit.gd" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lquwl")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("2_7mycd")]
+position = Vector2(499, 100)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D3" parent="Node2D" instance=ExtResource("2_0xm2m")]
+position = Vector2(501, 275)
+
+[node name="StaticBody2D4" parent="Node2D" instance=ExtResource("2_0xm2m")]
+position = Vector2(533, 245)
+
+[node name="StaticBody2D5" parent="Node2D" instance=ExtResource("2_0xm2m")]
+position = Vector2(465, 249)
+
+[node name="StaticBody2D6" parent="Node2D" instance=ExtResource("2_0xm2m")]
+position = Vector2(498, 199)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(540, 357)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("3_h2yge")
+metadata/_edit_lock_ = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 119.0
+offset_bottom = 43.0
+text = "0"
+script = ExtResource("4_1bvp3")
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 529.0
+offset_top = 383.0
+offset_right = 600.0
+offset_bottom = 414.0
+text = "1 Point"
+
+[connection signal="body_entered" from="Area2D" to="TextEdit" method="_on_area_2d_body_entered"]

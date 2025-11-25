@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyb6i3j3s1l7v"]
+
+[ext_resource type="Texture2D" uid="uid://g853hpxky3fo" path="res://ball_20x20.png" id="1_x8fbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x8fbi")
+metadata/_edit_lock_ = true
